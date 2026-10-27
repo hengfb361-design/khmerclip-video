@@ -24,14 +24,22 @@ host នៅ GitHub Pages / Netlify / Vercel / Cloudflare បានដោយផ�
 
 ## ១. បញ្ជាតែមួយ (one-liner) — ណែនាំ
 
-ដាក់ឯកសារ ២ ក្នុង repo របស់អ្នក (ដូច tools/demucs-colab ដែរ)៖
+ឯកសារ ២ ត្រូវបាន push រួចរាល់ (fork `hengfb361-design/Sal` និង repo
+`hengfb361-design/khmerclip-video`):
 
 ```
-tools/video-colab/colab-start.sh    ← ឯកសារនេះ
- tools/video-colab/colab_server.py  ← ចម្លងពី server/colab_server.py
+tools/video-colab/colab-start.sh    ← script បញ្ជាតែមួយ
+tools/video-colab/colab_server.py   ← ចម្លងពី server/colab_server.py
 ```
 
-បន្ទាប់មកក្នុង Colab/Kaggle cell មួយ (runtime ត្រូវមាន GPU)៖
+ក្នុង Colab/Kaggle cell មួយ (runtime ត្រូវមាន GPU)៖
+
+```bash
+# ដំណើរការឥឡូវនេះ (fork — ខ្លឹមសារដូច repo ដើម)
+!curl -fsSL https://raw.githubusercontent.com/hengfb361-design/Sal/main/tools/video-colab/colab-start.sh | sh
+```
+
+ក្រោយ PR #2 merge ចូល `kitreaksa78-debug/Sal` ហើយ URL ដើមក៏ដំណើរការ៖
 
 ```bash
 !curl -fsSL https://raw.githubusercontent.com/kitreaksa78-debug/Sal/main/tools/video-colab/colab-start.sh | sh
@@ -44,7 +52,7 @@ Script នេះនឹង៖ ពិនិត្យ GPU → ដំឡើង libra
 រួចចម្លង URL និង token ទៅកាត «ការតភ្ជាប់ server» លើ website។
 
 កំណត់បានតាម env៖ `VIDEO_PROFILE=ltx|cogvideox|zeroscope|auto` (default `auto`),
-`PORT`, `API_TOKEN`, `VIDEO_HOME`, `VIDEO_RAW`, `HF_TOKEN`។
+`PORT`, `API_TOKEN`, `VIDEO_HOME`, `VIDEO_URL`, `HF_TOKEN`។
 
 ## ២. ដំណើរការ server ដោយដៃ (notebook)
 
