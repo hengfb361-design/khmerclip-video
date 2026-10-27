@@ -106,7 +106,7 @@ const km = {
       "ចម្លង URL និង API Token ដែលវាបង្ហាញ មកដាក់ក្នុងទម្រង់នេះ",
     ],
     snippet:
-      "!curl -fsSL https://raw.githubusercontent.com/kitreaksa78-debug/Sal/main/tools/video-colab/colab-start.sh | sh",
+      "!curl -fsSL https://raw.githubusercontent.com/hengfb361-design/Sal/main/tools/video-colab/colab-start.sh | sh",
     okHint: "ភ្ជាប់បានហើយ — GPU និង model ដែលកំពុងប្រើ៖",
     gpu: "GPU",
     vram: "VRAM",
@@ -221,7 +221,7 @@ const en: typeof km = {
       "Paste the printed URL and API token into this form",
     ],
     snippet:
-      "!curl -fsSL https://raw.githubusercontent.com/kitreaksa78-debug/Sal/main/tools/video-colab/colab-start.sh | sh",
+      "!curl -fsSL https://raw.githubusercontent.com/hengfb361-design/Sal/main/tools/video-colab/colab-start.sh | sh",
     okHint: "Connected — GPU and model in use:",
     gpu: "GPU",
     vram: "VRAM",
