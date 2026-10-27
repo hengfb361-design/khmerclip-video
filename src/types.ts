@@ -35,6 +35,7 @@ export interface VideoJob {
   progress: number;
   prompt: string;
   translated_prompt: string | null;
+  scene_count: number;
   negative_prompt: string;
   width: number;
   height: number;
@@ -66,6 +67,7 @@ export interface GenerateRequest {
   height: number;
   num_frames: number;
   duration_seconds?: number | null;
+  scenes?: string[] | null;
   num_inference_steps: number;
   guidance_scale?: number;
   seed?: number | null;

@@ -23,6 +23,8 @@ const km = {
   composer: {
     label: "Prompt របស់អ្នក",
     hint: "សរសេរជាភាសាខ្មែរក៏បាន — AI បកប្រែជាភាសាអង់គ្លេសដោយស្វ័យប្រវត្តិ មុនពេលបង្កើតវីដេអូ។",
+    flowNote: "បន្ទាត់នីមួយៗ = ១ ឈុត (≈៦.៧ វ.) បន្តជាប់គ្នា គ្មានការផ្តាច់ (បែប Google Flow) — {n} ឈុត ≈ {total}។",
+    minutesUnit: "នាទី",
     placeholder:
       "ឧ. ទេសភាពប្រាសាទអង្គរវត្តពេលថ្ងៃលិច មានពពកពណ៌មាស និងសត្វស្លាបហើរពីលើប្រាសាទ ចលនាយឺតៗ",
     examplesLabel: "ឧទាហរណ៍",
@@ -146,6 +148,8 @@ const en: typeof km = {
   composer: {
     label: "Your prompt",
     hint: "Khmer is fine — the AI translates it to English automatically before generating.",
+    flowNote: "One line = one ~6.7s shot, chained with no visible cuts (like Google Flow) — {n} shots ≈ {total}।",
+    minutesUnit: "min",
     placeholder:
       "e.g. Angkor Wat at sunset with golden clouds, birds flying overhead, cinematic slow motion",
     examplesLabel: "Examples",

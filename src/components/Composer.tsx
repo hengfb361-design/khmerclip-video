@@ -3,6 +3,8 @@ import type { Copy } from "../i18n";
 interface ComposerProps {
   t: Copy["composer"];
   prompt: string;
+  /** Shown when the user separated several prompts with newlines (Flow-style scenes). */
+  flowNote: string | null;
   translation: string | null;
   translating: boolean;
   generating: boolean;
@@ -16,6 +18,7 @@ interface ComposerProps {
 export function Composer({
   t,
   prompt,
+  flowNote,
   translation,
   translating,
   generating,
@@ -44,6 +47,8 @@ export function Composer({
         maxLength={1200}
         spellCheck={false}
       />
+
+      {flowNote && <p className="flow-note">{flowNote}</p>}
 
       <div className="chips">
         <span className="chips-label">{t.examplesLabel}</span>

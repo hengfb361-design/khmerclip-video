@@ -361,6 +361,17 @@ textarea::placeholder {
   color: rgba(160, 157, 186, 0.72);
 }
 
+.flow-note {
+  margin: 10px 0 0;
+  padding: 9px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(139, 92, 246, 0.32);
+  background: rgba(139, 92, 246, 0.1);
+  color: #ddd6fe;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
 .chips {
   display: flex;
   flex-wrap: wrap;

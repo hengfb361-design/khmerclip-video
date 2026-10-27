@@ -50,6 +50,22 @@ export default function App() {
   const [showConnection, setShowConnection] = useState(() => loadServer().url.length === 0);
 
   const [prompt, setPrompt] = useState("");
+  const promptLines = prompt
+    .split(/\n+/)
+    .map((line) => line.trim())
+    .filter(Boolean);
+  const sceneCount = promptLines.length > 1 ? Math.min(promptLines.length, 30) : 0;
+  const flowNote =
+    sceneCount > 0
+      ? t.composer.flowNote
+          .replace("{n}", String(sceneCount))
+          .replace(
+            "{total}",
+            sceneCount * 7 > 90
+              ? `${Math.round((sceneCount * 7) / 60)} ${t.composer.minutesUnit}`
+              : `${sceneCount * 7}${" "}${t.stage.duration}`,
+          )
+      : null;
   const [settings, setSettings] = useState<Settings>(() => ({
     ...DEFAULT_SETTINGS,
     ...loadSettings(),
@@ -228,7 +244,13 @@ export default function App() {
         width: aspect.width,
         height: aspect.height,
         num_frames: quality.frames,
-        duration_seconds: settings.length === "single" ? null : Number(settings.length),
+        scenes: sceneCount > 1 ? promptLines.slice(0, 30) : null,
+        duration_seconds:
+          sceneCount > 1
+            ? null
+            : settings.length === "single"
+              ? null
+              : Number(settings.length),
         num_inference_steps: quality.steps,
         seed: seed !== null && Number.isFinite(seed) ? seed : null,
         translate: settings.translate,
@@ -238,7 +260,17 @@ export default function App() {
     } catch (error) {
       setJobError(describeError(error));
     }
-  }, [describeError, prompt, server, settings, startPolling, t.connection.needUrl, t.errors.https]);
+  }, [
+    describeError,
+    promptLines,
+    sceneCount,
+    prompt,
+    server,
+    settings,
+    startPolling,
+    t.connection.needUrl,
+    t.errors.https,
+  ]);
 
   const handleTranslate = useCallback(async () => {
     const trimmed = prompt.trim();
@@ -329,6 +361,7 @@ export default function App() {
           <Composer
             t={t.composer}
             prompt={prompt}
+            flowNote={flowNote}
             translation={translation}
             translating={translating}
             generating={generating}
