@@ -1,0 +1,10 @@
+node_modules/
+dist/
+*.local
+.pushrepo/
+.devserver.log
+.DS_Store
+server/outputs/
+server/__pycache__/
+tools/**/__pycache__/
+.env
