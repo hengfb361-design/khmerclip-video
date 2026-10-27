@@ -57,6 +57,24 @@ export function SettingsPanel({ t, settings, onChange }: SettingsPanelProps) {
       </div>
 
       <div className="field">
+        <span className="field-label">{t.length}</span>
+        <div className="segmented">
+          {(Object.keys(t.lengthLabels) as Array<keyof typeof t.lengthLabels>).map((key) => (
+            <button
+              key={key}
+              type="button"
+              className={settings.length === key ? "is-active" : ""}
+              onClick={() => onChange({ length: key })}
+            >
+              <strong>{t.lengthLabels[key]}</strong>
+              <span>{t.lengthHints[key]}</span>
+            </button>
+          ))}
+        </div>
+        <p className="muted tiny">{t.lengthHint}</p>
+      </div>
+
+      <div className="field">
         <span className="field-label">{t.seed}</span>
         <div className="input-row">
           <input

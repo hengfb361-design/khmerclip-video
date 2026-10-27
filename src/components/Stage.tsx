@@ -78,6 +78,12 @@ export function Stage({ t, job, jobError, client, hasServer, onConnect }: StageP
             <span style={{ width: `${Math.min(100, Math.max(4, job.progress))}%` }} />
           </div>
           <p className="muted small">{t.waitHint}</p>
+          {job.segments_total > 1 && (
+            <p className="muted small">
+              {t.segments}: {Math.min(job.segments_done + 1, job.segments_total)}/{job.segments_total}
+              · {job.frames_per_segment} frames/clip
+            </p>
+          )}
           {job.translated_prompt && (
             <div className="translation">
               <span className="translation-label">{t.translatedUsed}</span>
@@ -105,6 +111,10 @@ export function Stage({ t, job, jobError, client, hasServer, onConnect }: StageP
               <dd>
                 {job.num_frames} · {job.fps} fps
               </dd>
+            </div>
+            <div>
+              <dt>{t.duration}</dt>
+              <dd>≈ {(job.num_frames / job.fps).toFixed(1)}s</dd>
             </div>
             <div>
               <dt>{t.seed}</dt>

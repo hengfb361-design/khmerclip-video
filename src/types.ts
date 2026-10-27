@@ -2,6 +2,7 @@ export type Lang = "km" | "en";
 
 export type AspectKey = "16:9" | "9:16" | "1:1";
 export type QualityKey = "fast" | "standard" | "high";
+export type LengthKey = "single" | "15" | "30" | "60";
 
 export type JobStatus = "queued" | "running" | "done" | "error";
 
@@ -38,6 +39,10 @@ export interface VideoJob {
   width: number;
   height: number;
   num_frames: number;
+  frames_per_segment: number;
+  segments_total: number;
+  segments_done: number;
+  duration_seconds: number | null;
   fps: number;
   num_inference_steps: number;
   seed: number | null;
@@ -60,6 +65,7 @@ export interface GenerateRequest {
   width: number;
   height: number;
   num_frames: number;
+  duration_seconds?: number | null;
   num_inference_steps: number;
   guidance_scale?: number;
   seed?: number | null;
@@ -69,6 +75,7 @@ export interface GenerateRequest {
 export interface Settings {
   aspect: AspectKey;
   quality: QualityKey;
+  length: LengthKey;
   seed: string;
   negative: string;
   translate: boolean;

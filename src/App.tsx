@@ -228,6 +228,7 @@ export default function App() {
         width: aspect.width,
         height: aspect.height,
         num_frames: quality.frames,
+        duration_seconds: settings.length === "single" ? null : Number(settings.length),
         num_inference_steps: quality.steps,
         seed: seed !== null && Number.isFinite(seed) ? seed : null,
         translate: settings.translate,

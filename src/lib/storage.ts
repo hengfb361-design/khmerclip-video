@@ -28,6 +28,7 @@ function write(key: string, value: unknown): void {
 export const DEFAULT_SETTINGS: Settings = {
   aspect: "16:9",
   quality: "standard",
+  length: "single",
   seed: "",
   negative: "blurry, low quality, distorted, watermark, text, extra limbs",
   translate: true,
